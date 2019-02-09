@@ -10,14 +10,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<%= @questions.each do |question| %>
+				<% @questions.each do |question| %>
 				<tr>
 					<td><%= question.id%></td>
-					<td><%= question.id%></td>
-					<td>[Edit] [Delete]</td>
+					<td><%= link_to question.title, question_path(question)%></td>
+					<!-- Questionのidを渡す必要があるため、（question）を置いている -->
+					<td>[<%= link_to 'Edit', edit_question_path(question) %>] [<%= link_to 'Delete', question_path(question),method: :delete,data:{confirm:'Are you sure?'}%>]</td>
 				</tr>
 				<% end %>
 			</tbody>
 		</table>
 	</div>
+	<%= link_to 'New question', new_question_path %>
+	<!-- 第一引数にリンクテキスト、第二引数にURL -->
 </div>
