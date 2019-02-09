@@ -27,7 +27,7 @@
 						<td>
 							<%= answer.name %>
 						</td>
-						<td>[Edit] [Delite]</td>
+						<td>[<%= link_to 'Edit',  edit_question_answer_path(@question, answer) %>] [Delite]</td>
 					</tr>
 					<% end %>
 				</tbody>
